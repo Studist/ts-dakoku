@@ -11,7 +11,7 @@ import (
 	"golang.org/x/oauth2"
 
 	"github.com/gorilla/mux"
-	"github.com/nlopes/slack"
+	"github.com/slack-go/slack"
 )
 
 func (app *App) setupRouter() *mux.Router {

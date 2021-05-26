@@ -9,7 +9,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/nlopes/slack"
+	"github.com/slack-go/slack"
 	"golang.org/x/oauth2"
 	null "gopkg.in/guregu/null.v3"
 	gock "gopkg.in/h2non/gock.v1"
