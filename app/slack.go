@@ -86,7 +86,7 @@ func (ctx *Context) getLoginSlackMessage(state State) (*slack.Msg, error) {
 	return &slack.Msg{
 		Attachments: []slack.Attachment{
 			slack.Attachment{
-				Text:       "TeamSpirit で認証を行って、再度 `/ts` コマンドを実行してください :bow:",
+				Text:       "TeamSpirit で認証を行って、再度 `/dakoku` コマンドを実行してください :bow:",
 				CallbackID: callbackIDAttendanceButton,
 				Actions: []slack.AttachmentAction{
 					slack.AttachmentAction{
@@ -111,7 +111,7 @@ func (ctx *Context) getAuthenticateSlackMessage(state State) (*slack.Msg, error)
 	return &slack.Msg{
 		Attachments: []slack.Attachment{
 			slack.Attachment{
-				Text:       "Slack で認証を行って、再度 `/ts channel` コマンドを実行してください :bow:",
+				Text:       "Slack で認証を行って、再度 `/dakoku channel` コマンドを実行してください :bow:",
 				CallbackID: "slack_authentication_button",
 				Actions: []slack.AttachmentAction{
 					slack.AttachmentAction{
@@ -222,20 +222,6 @@ func (ctx *Context) getSlackMessage(command slack.SlashCommand) (*slack.Msg, err
 								DismissText: "いいえ",
 							},
 						},
-						slack.AttachmentAction{
-							Name:       actionTypeSelectChannel,
-							Value:      actionTypeSelectChannel,
-							Text:       "チャネルを選択",
-							Type:       "select",
-							DataSource: "channels",
-						},
-						slack.AttachmentAction{
-							Name:  actionTypeUnrest,
-							Value: actionTypeUnrest,
-							Text:  "通知を止める",
-							Style: "danger",
-							Type:  "button",
-						},
 					},
 				},
 			},
@@ -251,20 +237,6 @@ func (ctx *Context) getSlackMessage(command slack.SlashCommand) (*slack.Msg, err
 						Value: actionTypeAttend,
 						Text:  "出勤する",
 						Style: "primary",
-						Type:  "button",
-					},
-					slack.AttachmentAction{
-						Name:       actionTypeSelectChannel,
-						Value:      actionTypeSelectChannel,
-						Text:       "チャネルを選択",
-						Type:       "select",
-						DataSource: "channels",
-					},
-					slack.AttachmentAction{
-						Name:  actionTypeUnrest,
-						Value: actionTypeUnrest,
-						Text:  "通知を止める",
-						Style: "danger",
 						Type:  "button",
 					},
 				},
