@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"net/http"
 	"net/url"
+	"log"
 
 	"golang.org/x/oauth2"
 
@@ -132,11 +133,13 @@ func (app *App) handleSlashCommand(w http.ResponseWriter, r *http.Request) {
 
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
+		log.Printf("136")
 		return
 	}
 
 	if !s.ValidateToken(app.SlackVerificationToken) {
 		w.WriteHeader(http.StatusUnauthorized)
+		log.Printf("142")
 		return
 	}
 
