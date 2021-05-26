@@ -3,7 +3,7 @@ package app
 import (
 	"time"
 
-	"github.com/nlopes/slack"
+	"github.com/slack-go/slack"
 )
 
 const (
@@ -211,13 +211,6 @@ func (ctx *Context) getSlackMessage(command slack.SlashCommand) (*slack.Msg, err
 					CallbackID: callbackIDAttendanceButton,
 					Actions: []slack.AttachmentAction{
 						slack.AttachmentAction{
-							Name:  actionTypeRest,
-							Value: actionTypeRest,
-							Text:  "休憩を開始する",
-							Style: "default",
-							Type:  "button",
-						},
-						slack.AttachmentAction{
 							Name:  actionTypeLeave,
 							Value: actionTypeLeave,
 							Text:  "退勤する",
@@ -228,6 +221,20 @@ func (ctx *Context) getSlackMessage(command slack.SlashCommand) (*slack.Msg, err
 								OkText:      "はい",
 								DismissText: "いいえ",
 							},
+						},
+						slack.AttachmentAction{
+							Name:       actionTypeSelectChannel,
+							Value:      actionTypeSelectChannel,
+							Text:       "チャネルを選択",
+							Type:       "select",
+							DataSource: "channels",
+						},
+						slack.AttachmentAction{
+							Name:  actionTypeUnrest,
+							Value: actionTypeUnrest,
+							Text:  "通知を止める",
+							Style: "danger",
+							Type:  "button",
 						},
 					},
 				},
@@ -244,6 +251,20 @@ func (ctx *Context) getSlackMessage(command slack.SlashCommand) (*slack.Msg, err
 						Value: actionTypeAttend,
 						Text:  "出勤する",
 						Style: "primary",
+						Type:  "button",
+					},
+					slack.AttachmentAction{
+						Name:       actionTypeSelectChannel,
+						Value:      actionTypeSelectChannel,
+						Text:       "チャネルを選択",
+						Type:       "select",
+						DataSource: "channels",
+					},
+					slack.AttachmentAction{
+						Name:  actionTypeUnrest,
+						Value: actionTypeUnrest,
+						Text:  "通知を止める",
+						Style: "danger",
 						Type:  "button",
 					},
 				},
