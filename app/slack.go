@@ -3,7 +3,7 @@ package app
 import (
 	"time"
 
-	"github.com/slack-go/slack"
+	"github.com/nlopes/slack"
 )
 
 const (
