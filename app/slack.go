@@ -211,6 +211,13 @@ func (ctx *Context) getSlackMessage(command slack.SlashCommand) (*slack.Msg, err
 					CallbackID: callbackIDAttendanceButton,
 					Actions: []slack.AttachmentAction{
 						slack.AttachmentAction{
+							Name:  actionTypeRest,
+							Value: actionTypeRest,
+							Text:  "休憩を開始する",
+							Style: "default",
+							Type:  "button",
+						},
+						slack.AttachmentAction{
 							Name:  actionTypeLeave,
 							Value: actionTypeLeave,
 							Text:  "退勤する",
