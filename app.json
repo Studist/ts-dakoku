@@ -26,11 +26,12 @@
   },
   "addons": [
     {
-      "plan": "heroku-redis:hobby-dev"
+      "plan": "heroku-redis:mini"
     }
   ],
   "image": "heroku/go:1.9.4",
-  "mount_dir": "src/github.com/ngs/ts-dakoku",
-  "website": "http://github.com/ngs/ts-dakoku",
-  "repository": "http://github.com/ngs/ts-dakoku"
+  "stack": "heroku-24",
+  "mount_dir": "src/github.com/Studist/ts-dakoku",
+  "website": "http://github.com/Studist/ts-dakoku",
+  "repository": "http://github.com/Studist/ts-dakoku"
 }
